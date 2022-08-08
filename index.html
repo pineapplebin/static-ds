@@ -14,16 +14,6 @@
     <link rel="apple-touch-icon" href="./assets/icon.png" />
     <link href="./assets/dark.css" rel="stylesheet" />
     <title>DS Player</title>
-    <!-- Add hint for search engine -->
-    <meta
-      name="description"
-      content="DS Player is a web emulator for playing NDS and GBA games, designed for iOS(iPhone and iPad) and also workable for other devices."
-    />
-    <meta
-      name="keywords"
-      content="NDS, GBA, iOS, iPhone, iPad, emulator, DS, Safari, online, PWA"
-    />
-    <meta name="author" content="44670" />
   </head>
 
   <body data-new-gr-c-s-check-loaded="14.1073.0" data-gr-ext-installed="">
@@ -140,25 +130,14 @@
       <div id="loading" hidden="">Loading...</div>
       <div id="loadrom">
         <input id="rom" type="file" />
-        <!-- <button
-          style="width: calc(100% - 2em); margin: 1em"
-          id="btn-choose-file"
-        >
-          Choose File (or drag/drop)...</button
-        ><br /> -->
       </div>
-      <p style="color: #888">
-        Your files are processed locally and won't be uploaded to any server.<br />
-        This software should not be used to play games you have not legally
-        obtained.<br />
-        "Nintendo DS" is a trademark of Nintendo. This site is not associated
-        with Nintendo in any way.
-      </p>
       <hr />
       <p>
-        <span id="ver-info">Ver: v20220731 </span
-        ><a onclick="whatsNew()" id="whats-new" href="#">Updated!</a
-        >&nbsp;|&nbsp;<a href="#" onclick="uiSwitchTo('menu')">⚙ Settings...</a>
+        <span id="ver-info">Ver: v20220731</span>&nbsp;|&nbsp;<a
+          href="#"
+          onclick="uiSwitchTo('menu')"
+          >⚙ Settings...</a
+        >
       </p>
       <p>
         <a href="https://github.com/44670/desmume-wasm">Help</a>&nbsp;|&nbsp;<a
@@ -169,19 +148,9 @@
       </p>
       <p>
         Powered by
-        <a href="https://github.com/44670/desmume-wasm">desmume-wasm.</a
-        >&nbsp;|&nbsp;https://ds.44670.org<br />
+        <a href="https://github.com/44670/desmume-wasm">desmume-wasm.</a><br />
       </p>
 
-      <div id="pro" style="background-color: #333">
-        <p></p>
-        <div>
-          <p class="link">
-            🔗Unlock Early Access features by inviting your friends
-          </p>
-        </div>
-        <div><p class="link">Enter Early Access Code</p></div>
-      </div>
       <p id="ios-power-hint" hidden="">
         Please <b>turn off "Low Power Mode"</b> in iOS Control Center for better
         performance.<br />
@@ -352,7 +321,7 @@
       <p id="msg-text"></p>
     </div>
     <div id="menu" hidden="">
-      <button onclick="uiMenuBack()">❮ Back</button>
+      <button onclick="uiMenuBack()">&lt; Back</button>
       <hr />
       <div id="cfg-ea" hidden="">
         <b>Early Access features</b><br />
@@ -433,33 +402,6 @@
     <script src="./assets/pako.min.js"></script>
     <script src="./assets/app.js"></script>
     <script src="./assets/nds.js"></script>
-
-    <div id="invite" hidden="">
-      <h1>Share with your friends</h1>
-
-      <p>
-        By sharing with your friends, you can completely remove ads and unlock
-        Early Access features.
-      </p>
-
-      Your invite link is:<br />
-      <input
-        id="invite-code"
-        type="text"
-        value=""
-        readonly=""
-        style="width: 24em"
-      /><br />
-      <button id="invite-copy">Copy</button><br />
-
-      <p>
-        For each invite on a different device <b>by your invite link</b>, you
-        and your friend will get 3 days of ad-free and Early Access features
-        after the page was added to the Home Screen.
-      </p>
-
-      <a href="#" id="invite-hide" onclick="showInvite(false)">Close</a>
-    </div>
   </body>
   <grammarly-desktop-integration
     data-grammarly-shadow-root="true"

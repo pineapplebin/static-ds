@@ -1,4 +1,4 @@
-var VER = "v20220731";
+var VER = "v20220808(20220731)";
 
 var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 var isMacOS = !!navigator.platform && /Mac/.test(navigator.platform);
@@ -112,17 +112,6 @@ function toyEncrypt(src) {
 }
 
 function uiSaveExport() {
-  if (isSaveSupported) {
-    if (
-      !confirm(`Auto-save is enabled, you DON't have to export save data manually.
-After you saved in the game, wait a few seconds and save data will be stored in the app's local storage automatically.
-To prevent the data loss caused by accidential deletion of the Home Screen icon or damaged device, you may export the save data to a safe place.
-
-Do you wish to export the save data manually?`)
-    ) {
-      return;
-    }
-  }
   var u8Arr = emuCopySavBuffer();
   var blob = new Blob([u8Arr], { type: "application/binary" });
   var link = document.createElement("a");
