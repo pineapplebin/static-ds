@@ -359,9 +359,6 @@ function emuCopySavBuffer() {
 }
 
 function checkSaveGame() {
-  if (!isSaveSupported) {
-    return;
-  }
   var saveUpdateFlag = Module._savUpdateChangeFlag();
   if (saveUpdateFlag == 0 && prevSaveFlag == 1) {
     var savBuf = emuCopySavBuffer();
@@ -1190,52 +1187,11 @@ if (isIOS) {
   $id("ios-power-hint").hidden = false;
 }
 
-if (location.origin == "https://ds.44670.org") {
-  if (isSaveSupported) {
-    // Register Service Worker
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/sw.js")
-        .then(function (reg) {
-          // registration worked
-          console.log("Registration succeeded. Scope is " + reg.scope);
-        })
-        .catch(function (error) {
-          // registration failed
-          console.log("Registration failed with " + error);
-        });
-      navigator.serviceWorker.addEventListener("message", (event) => {
-        console.log("sw msg", event);
-        if (event.data.msg) {
-          $id("whats-new").innerText = event.data.msg;
-        }
-      });
-    }
-  }
-  (function () {
-    var cnt = 0;
-    // Prompt to install PWA
-    window.onbeforeinstallprompt = function (e) {
-      cnt += 1;
-      if (cnt > 2) {
-        return;
-      }
-      console.log("Before install prompt", e);
-      e.preventDefault();
-      var deferredPrompt = e;
-      window.onclick = function (e) {
-        deferredPrompt.prompt();
-        window.onclick = null;
-      };
-    };
-  })();
-}
-
 var vertShaderSource = `
     precision mediump float;
     attribute vec2 a_position; //(0,0)-(1,1)
     varying vec2 v_texCoord; //(0,0)-(1,1)
-    
+
     void main() {
         // Convert a_position to gl_Position
         gl_Position = vec4(a_position.x * 2.0 - 1.0, 1.0 - a_position.y * 2.0, 0, 1);
@@ -1245,7 +1201,7 @@ var vertShaderSource = `
 var fragShaderSource = `
 
 
-    
+
 #ifdef GL_ES
 #ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
@@ -1268,15 +1224,15 @@ out COMPAT_PRECISION vec4 FragColor;
 #endif
 
 precision mediump float;
-uniform sampler2D u_image; 
-varying vec2 v_texCoord; 
+uniform sampler2D u_image;
+varying vec2 v_texCoord;
 uniform vec2 u_outResolution;
 uniform vec2 u_inResolution;
 
 #define Source u_image
 #define vTexCoord v_texCoord
 
-#define SourceSize vec4(u_inResolution, 1.0 / u_inResolution) 
+#define SourceSize vec4(u_inResolution, 1.0 / u_inResolution)
 #define OutSize vec4(u_outResolution, 1.0 / u_outResolution)
 
 #define BLEND_NONE 0
