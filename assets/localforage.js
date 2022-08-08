@@ -1,15 +1,3 @@
-var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
-if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
-{
-  let window = _____WB$wombat$assign$function_____("window");
-  let self = _____WB$wombat$assign$function_____("self");
-  let document = _____WB$wombat$assign$function_____("document");
-  let location = _____WB$wombat$assign$function_____("location");
-  let top = _____WB$wombat$assign$function_____("top");
-  let parent = _____WB$wombat$assign$function_____("parent");
-  let frames = _____WB$wombat$assign$function_____("frames");
-  let opener = _____WB$wombat$assign$function_____("opener");
-
 /*!
     localForage -- Offline Storage, Improved
     Version 1.7.3
@@ -2582,7 +2570,7 @@ var LocalForage = function () {
         var promise = new Promise$1(function (resolve, reject) {
             try {
                 var driverName = driverObject._driver;
-                var complianceError = new Error('Custom driver not compliant; see ' + 'https://web.archive.org/web/20220712091007/https://mozilla.github.io/localForage/#definedriver');
+                var complianceError = new Error('Custom driver not compliant; see ' + 'https://mozilla.github.io/localForage/#definedriver');
 
                 // A driver name should be defined and not overlap with the
                 // library-defined, default drivers.
@@ -2807,27 +2795,3 @@ module.exports = localforage_js;
 
 },{"3":3}]},{},[4])(4)
 });
-
-
-}
-/*
-     FILE ARCHIVED ON 09:10:07 Jul 12, 2022 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 07:08:01 Aug 08, 2022.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  captures_list: 214.842
-  exclusion.robots: 0.094
-  exclusion.robots.policy: 0.086
-  cdx.remote: 0.07
-  esindex: 0.009
-  LoadShardBlock: 171.782 (3)
-  PetaboxLoader3.datanode: 160.869 (4)
-  CDXLines.iter: 16.147 (3)
-  load_resource: 138.578
-  PetaboxLoader3.resolve: 47.85
-*/

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- saved from url=(0021)https://ds.44670.org/ -->
+<html>
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta
@@ -49,7 +51,6 @@
       canvas {
         position: absolute;
         z-index: 1;
-        image-rendering: pixelated;
       }
 
       #msg-layer {
@@ -136,96 +137,256 @@
     </style>
     <div id="welcome" class="menu">
       <h1>DS Player</h1>
-      <div id="loading" hidden="">
-        Loading...<br />
-        DS Player is a web emulator for playing NDS and GBA games, designed for
-        iOS(iPhone and iPad) and also workable for other devices.
-      </div>
+      <div id="loading" hidden="">Loading...</div>
       <div id="loadrom">
         <input id="rom" type="file" />
-        <!-- <button style="width:calc(100% - 2em);margin: 1em;" id="btn-choose-file">Choose File (or
-                drag/drop)...</button><br> -->
+        <!-- <button
+          style="width: calc(100% - 2em); margin: 1em"
+          id="btn-choose-file"
+        >
+          Choose File (or drag/drop)...</button
+        ><br /> -->
       </div>
       <p style="color: #888">
+        Your files are processed locally and won't be uploaded to any server.<br />
         This software should not be used to play games you have not legally
         obtained.<br />
-        This site is in no way associated with any of the vendors of the
-        original game software and hardware.
-        <br />
+        "Nintendo DS" is a trademark of Nintendo. This site is not associated
+        with Nintendo in any way.
       </p>
       <hr />
       <p>
-        <span id="ver-info">Ver: v20220530 </span
-        ><a onclick="whatsNew()" id="whats-new" href="#">What's New</a
-        >&nbsp;|&nbsp;<a href="#" onclick="uiSwitchTo('menu')">Settings...</a>
+        <span id="ver-info">Ver: v20220731 </span
+        ><a onclick="whatsNew()" id="whats-new" href="#">Updated!</a
+        >&nbsp;|&nbsp;<a href="#" onclick="uiSwitchTo('menu')">⚙ Settings...</a>
       </p>
       <p>
-        <a href="#">Help</a>&nbsp;|&nbsp;<a href="#" id="a-gamepad"
-          >Gamepad Disconnected</a
+        <a href="https://github.com/44670/desmume-wasm">Help</a>&nbsp;|&nbsp;<a
+          href="#"
+          id="a-gamepad"
+          >No Gamepad</a
         >
       </p>
+      <p>
+        Powered by
+        <a href="https://github.com/44670/desmume-wasm">desmume-wasm.</a
+        >&nbsp;|&nbsp;https://ds.44670.org<br />
+      </p>
+
       <div id="pro" style="background-color: #333">
         <p></p>
         <div>
           <p class="link">
-            Unlock Early Access features by sharing with your friends
+            🔗Unlock Early Access features by inviting your friends
           </p>
         </div>
-        <div>
-          <p class="link">Enter Early Access Code</p>
-        </div>
+        <div><p class="link">Enter Early Access Code</p></div>
       </div>
+      <p id="ios-power-hint" hidden="">
+        Please <b>turn off "Low Power Mode"</b> in iOS Control Center for better
+        performance.<br />
+        The battery icon is yellow if it's enabled.
+      </p>
       <div id="ios-hint" hidden="">
-        Due to iOS Safari limitations, you have to add this page to your
-        <b>Home Screen</b> by <b>Share Menu</b> in order to save your game
-        progress.
-        <p style="text-align: center">⬇⬇</p>
+        Due to iOS limitations, please open this site(https://ds.44670.org) in
+        <b>Safari</b>, and add it to your <b>Home Screen</b> by
+        <b>Share Menu</b> to continue.
+        <p style="text-align: center">⬇⬇⬇</p>
       </div>
       <div id="mac-warning" hidden="">
         WARNING:<br />
         It looks like you are using macOS.<br />
         Due to macOS Safari
-        <a
-          href="https://webkit.org/tracking-prevention/"
-          >limitations</a
-        >, ALL of you save data will be LOST after 7 days of inactivity.<br />
+        <a href="https://webkit.org/tracking-prevention/">limitations</a>, ALL
+        of you save data will be LOST after 7 days of inactivity.<br />
         For this reason, it is highly recommended to use a different browser.
-        (For example:
-        <a
-          href="https://www.google.com/chrome/"
-          >Chrome</a
-        >)
+        (For example: <a href="https://www.google.com/chrome/">Chrome</a>)
       </div>
     </div>
     <div id="vk-layer" hidden="">
-      <div class="vk-rect vk" data-k="menu" id="vk-menu">Menu</div>
-      <div class="vk-rect vk" data-k="l">L</div>
-      <div class="vk-rect vk" data-k="r">R</div>
-      <div class="vk-round vk" data-k="a">A</div>
-      <div class="vk-round vk" data-k="b">B</div>
-      <div class="vk-round vk" data-k="x">X</div>
-      <div class="vk-round vk" data-k="y">Y</div>
-      <div class="vk-rect vk" data-k="select">SE</div>
-      <div class="vk-rect vk" data-k="start">ST</div>
-      <div class="vk-round vk" data-k="stick" id="vk-stick"></div>
-      <div id="vk-dpad-1" class="vk vk-round-rect"></div>
-      <div id="vk-dpad-2" class="vk vk-round-rect"></div>
+      <div
+        class="vk-rect vk"
+        data-k="menu"
+        id="vk-menu"
+        style="
+          top: 424px;
+          left: 789.184px;
+          width: 93.632px;
+          height: 93.632px;
+          font-size: 117.04px;
+          line-height: 93.632px;
+        "
+      >
+        M
+      </div>
+      <div
+        class="vk-rect vk"
+        data-k="l"
+        style="
+          top: 424px;
+          left: 0px;
+          width: 351.12px;
+          height: 140.448px;
+          font-size: 117.04px;
+          line-height: 140.448px;
+        "
+      >
+        L
+      </div>
+      <div
+        class="vk-rect vk"
+        data-k="r"
+        style="
+          top: 424px;
+          left: 1320.88px;
+          width: 351.12px;
+          height: 140.448px;
+          font-size: 117.04px;
+          line-height: 140.448px;
+        "
+      >
+        R
+      </div>
+      <div
+        class="vk-round vk"
+        data-k="a"
+        style="
+          top: 803.21px;
+          left: 1437.92px;
+          width: 234.08px;
+          height: 234.08px;
+          font-size: 117.04px;
+          line-height: 234.08px;
+        "
+      >
+        A
+      </div>
+      <div
+        class="vk-round vk"
+        data-k="b"
+        style="
+          top: 1037.29px;
+          left: 1203.84px;
+          width: 234.08px;
+          height: 234.08px;
+          font-size: 117.04px;
+          line-height: 234.08px;
+        "
+      >
+        B
+      </div>
+      <div
+        class="vk-round vk"
+        data-k="x"
+        style="
+          top: 569.13px;
+          left: 1203.84px;
+          width: 234.08px;
+          height: 234.08px;
+          font-size: 117.04px;
+          line-height: 234.08px;
+        "
+      >
+        X
+      </div>
+      <div
+        class="vk-round vk"
+        data-k="y"
+        style="
+          top: 803.21px;
+          left: 969.76px;
+          width: 234.08px;
+          height: 234.08px;
+          font-size: 117.04px;
+          line-height: 234.08px;
+        "
+      >
+        Y
+      </div>
+      <div
+        class="vk-rect vk"
+        data-k="select"
+        style="
+          top: 1177.74px;
+          left: 695.552px;
+          width: 93.632px;
+          height: 93.632px;
+          font-size: 46.816px;
+          line-height: 93.632px;
+        "
+      >
+        SE
+      </div>
+      <div
+        class="vk-rect vk"
+        data-k="start"
+        style="
+          top: 1177.74px;
+          left: 882.816px;
+          width: 93.632px;
+          height: 93.632px;
+          font-size: 46.816px;
+          line-height: 93.632px;
+        "
+      >
+        ST
+      </div>
+      <div
+        class="vk-round vk"
+        data-k="stick"
+        id="vk-stick"
+        style="
+          top: 803.21px;
+          left: 234.08px;
+          width: 234.08px;
+          height: 234.08px;
+          font-size: 117.04px;
+          line-height: 234.08px;
+        "
+      ></div>
+      <div id="vk-dpad-1" class="vk vk-round-rect" style="display: none"></div>
+      <div id="vk-dpad-2" class="vk vk-round-rect" style="display: none"></div>
     </div>
     <div style="z-index: 2; position: absolute; bottom: 20px" id="fps"></div>
     <div id="msg-layer" hidden="">
       <p id="msg-text"></p>
     </div>
     <div id="menu" hidden="">
-      <button onclick="uiMenuBack()">&lt; Back</button>
+      <button onclick="uiMenuBack()">❮ Back</button>
+      <hr />
+      <div id="cfg-ea" hidden="">
+        <b>Early Access features</b><br />
+        Thank you for your support!<br />Please note that these features are
+        experimental and may not be stable.<br />
+        <input type="checkbox" id="cfg-turbo" />
+        <label for="cfg-turbo">Turbo mode</label><br />
+        <br />
+        <label for="cfg-ls-layout">Landscape Screen Layout</label>
+        <select id="cfg-ls-layout" value="">
+          <option value="0">TB</option>
+          <option value="1">LR 1:1</option>
+          <option value="2">LR X:1</option></select
+        ><br />
+        <label for="cfg-scale-mode">Screen filter(restart required)</label>
+        <select id="cfg-scale-mode" value="">
+          <option value="0">Pixelated</option>
+          <option value="1">Smooth</option>
+          <option value="2">XBRZ</option>
+        </select>
+      </div>
       <hr />
       <input type="checkbox" id="power-save" />
-      <label for="power-save"
-        >Power saving mode (iOS's low battery mode should be off)</label
-      ><br />
+      <label for="power-save">Power-saving mode</label><br />
       <input type="checkbox" id="vk-enabled" />
       <label for="vk-enabled">Virtual keyboard</label><br />
       <input type="checkbox" id="cfg-mute-sound" />
       <label for="cfg-mute-sound">Mute sound</label><br />
+      <label for="vk-direction">Virtual Keyboard Style</label>
+      <select id="vk-direction" value="">
+        <option value="0">Circle-Pad</option>
+        <option value="1">D-Pad</option></select
+      ><br />
+
       <hr />
       <div id="menu-savegame" hidden="">
         <input
@@ -234,26 +395,39 @@
           onchange="uiSaveRestore()"
           hidden=""
         />
-        Save Data: <button onclick="uiSaveBackup()">↓ Export</button>|<button
+        Save Data: <button onclick="uiSaveExport()">↓ Export</button>|<button
           onclick="$id('restore-file').click()"
         >
           ↑ Import</button
         ><br />
-        You have to save in the game before exporting.<br />
-        <span id="hint-auto-save"
-          ><b>Auto-save is enabled</b>, after you saved in the game, wait a few
-          seconds and it will be saved in the app's local storage automatically,
-          so <b>you don't have to export it in normal usecases</b>. <br />The
-          app's local storage will be deleted if the Home Screen icon is
-          removed.<br
-        /></span>
-
         <hr />
       </div>
     </div>
     <div id="player" hidden="">
-      <canvas id="top" width="256" height="192"></canvas>
-      <canvas id="bottom" width="256" height="192"></canvas>
+      <canvas
+        id="top"
+        width="256"
+        height="192"
+        style="
+          left: 412px;
+          top: 0px;
+          width: 848px;
+          height: 636px;
+          image-rendering: pixelated;
+        "
+      ></canvas>
+      <canvas
+        id="bottom"
+        width="256"
+        height="192"
+        style="
+          left: 412px;
+          top: 636px;
+          width: 848px;
+          height: 636px;
+          image-rendering: pixelated;
+        "
+      ></canvas>
     </div>
     <script src="./assets/localforage.js"></script>
     <script src="./assets/pako.min.js"></script>
@@ -284,12 +458,7 @@
         after the page was added to the Home Screen.
       </p>
 
-      <a
-        href="https://web.archive.org/web/20220625031331/https://ds.44670.org/#"
-        id="invite-hide"
-        onclick="showInvite(false)"
-        >Close</a
-      >
+      <a href="#" id="invite-hide" onclick="showInvite(false)">Close</a>
     </div>
   </body>
   <grammarly-desktop-integration
