@@ -1,15 +1,15 @@
-var CACHE_NAME = "v2";
+var CACHE_NAME = "v3";
 
 var urlsToCache = [
-  "/",
-  "/manifest.json",
-  "/assets/app.js",
-  "/assets/localforage.js",
-  "/assets/pako.min.js",
-  "/assets/dark.css",
-  "/assets/icon.png",
-  "/assets/nds.js",
-  "/assets/nds.wasm",
+  "index.html",
+  "manifest.json",
+  "assets/app.js",
+  "assets/localforage.js",
+  "assets/pako.min.js",
+  "assets/dark.css",
+  "assets/icon.png",
+  "assets/nds.js",
+  "assets/nds.wasm",
 ];
 
 self.addEventListener("install", function (event) {
