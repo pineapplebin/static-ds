@@ -1,6 +1,7 @@
-var CACHE_NAME = "v3";
+var CACHE_NAME = "v4";
 
 var urlsToCache = [
+  "/",
   "index.html",
   "manifest.json",
   "assets/app.js",
