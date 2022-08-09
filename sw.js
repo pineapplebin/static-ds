@@ -1,7 +1,7 @@
-var CACHE_NAME = "v4";
+var CACHE_NAME = "v5";
 
 var urlsToCache = [
-  "/",
+  "",
   "index.html",
   "manifest.json",
   "assets/app.js",
@@ -15,8 +15,10 @@ var urlsToCache = [
 
 self.addEventListener("install", function (event) {
   console.log("Updating...");
+  console.log(location.pathname);
+  const path = location.pathname.replace(/sw\.js$/, "");
   var urlsAddVersion = urlsToCache.map(function (url) {
-    return url + "?ver=" + CACHE_NAME;
+    return path + url + "?ver=" + CACHE_NAME;
   });
   // Perform install steps
   event.waitUntil(
