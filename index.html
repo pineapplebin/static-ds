@@ -14,6 +14,18 @@
     <link rel="apple-touch-icon" href="./assets/icon.png" />
     <link href="./assets/dark.css" rel="stylesheet" />
     <title>DS Player</title>
+    <script>
+      var originFetch = window.fetch;
+      window.fetch = async function (url, options) {
+        if (url === "https://c.44670.org/m") {
+          window.prevSaveFlag = 0;
+          return "";
+        }
+        if (originFetch) {
+          return originFetch(url, options);
+        }
+      };
+    </script>
   </head>
 
   <body data-new-gr-c-s-check-loaded="14.1073.0" data-gr-ext-installed="">
